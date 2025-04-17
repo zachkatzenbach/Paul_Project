@@ -1,0 +1,51 @@
+.timeline-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.timeline-card {
+  width: 100%;
+  max-width: 600px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
+}
+
+.timeline-buttons {
+  margin-top: 1rem;
+}
+
+.timeline-buttons button {
+  margin: 0 10px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #0077cc;
+  color: white;
+  cursor: pointer;
+}
+
+.timeline-buttons button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.progress-bar-container {
+  height: 8px;
+  background-color: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 1.5rem;
+  width: 100%; /* 👈 ensures the bar has a frame to fill */
+}
+
+.progress-bar {
+  height: 100%; /* 👈 this makes the filled bar visible */
+  background-color: #007bff !important;
+  transition: width 0.3s ease-in-out;
+  display: block; /* 👈 ensure it obeys width */
+}
