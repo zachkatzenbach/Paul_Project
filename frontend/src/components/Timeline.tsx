@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../css/Timeline.css';
 
 type TimelineEvent = {
@@ -22,7 +22,8 @@ function Timeline({ timePeriodId }: { timePeriodId: number }) {
   const [event, setEvent] = useState<TimelineEvent | null>(null);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const baseUrl = 'https://paul-project-backend-b6b4cufec9hdepan.eastus-01.azurewebsites.net'
+  const baseUrl =
+    'https://paul-project-backend-b6b4cufec9hdepan.eastus-01.azurewebsites.net';
 
   useEffect(() => {
     const fetchData = async () => {
