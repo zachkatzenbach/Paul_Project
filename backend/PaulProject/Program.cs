@@ -16,6 +16,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("PaulConnection")));
 
+builder.Services.AddSession();
+builder.Services.AddDistributedMemoryCache();
+
 builder.Services.AddCors(options => {
     options.AddPolicy("AllowFrontend", policy =>
         {
@@ -50,7 +53,6 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
 });
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -63,6 +65,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseCors("AllowFrontend");
 
+app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 
