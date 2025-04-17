@@ -5,9 +5,11 @@ import { useNavigate } from 'react-router-dom';
 function Header() {
   const navigate = useNavigate();
   const [authenticated, setAuthenticated] = useState(false);
+  const baseUrl =
+    'https://paul-project-backend-b6b4cufec9hdepan.eastus-01.azurewebsites.net';
 
   useEffect(() => {
-    fetch('https://localhost:7081/pingauth', {
+    fetch(`${baseUrl}/pingauth`, {
       method: 'GET',
       credentials: 'include',
     })
@@ -16,7 +18,7 @@ function Header() {
   }, []);
 
   const handleLogout = async () => {
-    await fetch('https://localhost:7081/logout', {
+    await fetch(`${baseUrl}/logout`, {
       method: 'POST',
       credentials: 'include',
     });

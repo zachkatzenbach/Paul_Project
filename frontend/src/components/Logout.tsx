@@ -6,8 +6,10 @@ function Logout(props: { children: React.ReactNode }) {
   const handleLogout = async (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
+    const baseUrl = 'https://paul-project-backend-b6b4cufec9hdepan.eastus-01.azurewebsites.net'
+
     try {
-      const response = await fetch('https://localhost:7081/logout', {
+      const response = await fetch(`${baseUrl}/logout`, {
         method: 'POST',
         credentials: 'include', // Ensure cookies are sent
         headers: {

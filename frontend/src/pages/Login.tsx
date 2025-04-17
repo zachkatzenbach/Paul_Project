@@ -5,12 +5,14 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const baseUrl =
+    'https://paul-project-backend-b6b4cufec9hdepan.eastus-01.azurewebsites.net';
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const response = await fetch(
-      'https://localhost:7081/login?useCookies=true&useSessionCookies=true',
+      `${baseUrl}/login?useCookies=true&useSessionCookies=true`,
       {
         method: 'POST',
         headers: {

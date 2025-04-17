@@ -22,12 +22,13 @@ function Timeline({ timePeriodId }: { timePeriodId: number }) {
   const [event, setEvent] = useState<TimelineEvent | null>(null);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const baseUrl = 'https://paul-project-backend-b6b4cufec9hdepan.eastus-01.azurewebsites.net'
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `https://localhost:7081/api/paul/events?time_period_id=${timePeriodId}&page=${page}&pageSize=1`,
+          `${baseUrl}/api/paul/events?time_period_id=${timePeriodId}&page=${page}&pageSize=1`,
           { credentials: 'include' }
         );
         const data: ApiResponse = await res.json();
