@@ -19,7 +19,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddCors(options => {
     options.AddPolicy("AllowFrontend", policy =>
         {
-            policy.WithOrigins("http://localhost:5173")
+            policy.WithOrigins(
+                "http://localhost:5173", 
+                "https://gray-sea-000c9b21e.6.azurestaticapps.net/")
             .AllowCredentials()
             .AllowAnyMethod()
             .AllowAnyHeader();
